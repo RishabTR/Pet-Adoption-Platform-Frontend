@@ -1,0 +1,229 @@
+For Cards
+:root {
+  --color-grey-primary: #f0f0f0;
+  --color-yellow-primary: goldenrod;   
+  --color-orange-primary: darkorange;
+  --color-green-primary: mediumseagreen;
+}
+ 
+html{
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/*For login page*/
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Vertically centers the content */
+  height: 100vh; /* Makes the container full height of the viewport */
+  margin: auto; /* Centers the container horizontally */
+  padding: 2rem; /* Adds space around the content */
+  border: 1px solid black;
+}
+
+/*For Register page*/
+.register{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Vertically centers the content */
+  height: 100vh; /* Makes the container full height of the viewport */
+  margin: auto; /* Centers the container horizontally */
+  padding: 2rem; /* Adds space around the content */
+  border: 1px solid black;
+}
+
+/*For Cards in User component*/
+.parent{
+  display: flex;
+  justify-content: center;
+  height: 100vh; 
+  margin: auto; 
+  padding: 2rem;
+  border: 1px solid black;
+}
+.productList{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+  height: 500px;
+  width: 300px;
+}
+
+.productCard{
+  position: relative;
+  background-color: var(--color-grey-primary);
+  margin: 1rem;
+  flex: 1 0 25rem;
+  max-width: 30rem;
+  max-height: 50rem;
+  transition: 0.2s;
+}
+
+.productCard:hover{
+  transform: translateY(-0.5rem);
+  box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
+}
+
+.productImage{
+  margin-top: 4rem;
+  width: 180px;
+  height: 240px;
+  max-width: 80%;
+  max-height: 50%;
+}
+
+.productCard__cart{
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.productCard__wishlist{
+  position: absolute;
+  right: 3rem;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.productCard__fastSelling {
+  position: absolute;
+  font-size: 2rem;
+  left: 0;
+  margin: 1rem;
+  fill: var(--color-orange-primary);
+}
+
+.productCard__content {
+  margin: 2rem;
+}
+
+.productName{
+  font-size: 1.5rem;
+}
+
+.displayStack__2{
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/*Header-navbar*/
+active{
+  background-color: #1d4ed8;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f172a;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+nav .title {
+  font-size: 20px;
+  margin: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  height: 50px;
+}
+
+nav ul {
+  display: flex;
+  font-size: 20px;
+}
+
+nav ul li {
+ list-style: none; 
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+nav ul li a:not(.active):hover {
+  background-color:#172554 ;
+}
+
+nav .menu {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+nav .menu span {
+  height: 0.4rem;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.2rem;
+}
+
+
+@media (max-width: 480px) {
+  nav .menu {
+      display: flex;
+  }
+
+  nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.25rem;
+  }
+
+  nav ul.open {
+      display: flex;
+  }
+
+  nav ul li {
+      width: 100%;
+      text-align: center;
+  }
+
+  nav ul li a {
+      margin: 0.2rem 0.5rem;
+  }
+}
+
+/*Contact Form*/
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; 
+  margin: auto; 
+  padding: 2rem;
+  border: 1px solid black;
+}
