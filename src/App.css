@@ -13,6 +13,7 @@ html{
 
 
 
+
 /*For login page*/
 
 .login {
@@ -27,15 +28,49 @@ html{
 }
 
 /*For Register page*/
-.register{
+
+.form{
+  
+  display: flex;
+  justify-content: center;
+}
+.register-container{
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Vertically centers the content */
-  height: 100vh; /* Makes the container full height of the viewport */
-  margin: auto; /* Centers the container horizontally */
-  padding: 2rem; /* Adds space around the content */
-  border: 1px solid black;
+  align-items: center;  
+  padding: 10%;  
+}
+
+.register-container > * {
+  margin-bottom: 20px; /* Adjust the value to increase or decrease the vertical space */
+}
+
+.register-container > *:last-child {
+  margin-bottom: 0; /* Remove margin from the last element to prevent extra space at the bottom */
+}
+
+.register-inputs{
+  display: flex;
+  flex-direction: column;
+}
+
+.register-inputs > * {
+  margin-bottom: 20%; /* Remove margin from the last element to prevent extra space at the bottom */
+}
+.register-inputs  >  :last-child{
+  margin-bottom: 0;
+}
+.register-user-type{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.register-buttons{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 /*For Cards in User component*/
@@ -518,22 +553,6 @@ textarea{
 textarea::placeholder{
   color: var(--dark-blue);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-form button{
-  background-color: var(--dark-blue);
-  font-size: 20px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  color: var(--light-blue);
-  cursor: pointer;
-  width: 60%;
-  margin: 5px;
-}
-
-form button:active{
-  transform: scale(0.99);
 }
 
 /* FOOTER */

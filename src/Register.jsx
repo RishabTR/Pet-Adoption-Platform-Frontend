@@ -34,77 +34,85 @@ function Register() {
 
   return (
     <>
-      <div className="register">
-        <h2>Register</h2>
-        <form>
-          <div className="container">
-            <div className="header ">
-              <div className="text"></div>
-              <div className="underline"></div>
+      <form className="form">
+        <div className="register-container">
+          <div className="register-inputs">
+            <div className="input">
+              <input
+                type="text"
+                required
+                placeholder="Name"
+                name="username"
+                onChange={onHandleChange}
+              />
             </div>
-            <div className="inputs">
-              <div className="input">
-                <input
-                  type="text"
-                  required
-                  placeholder="Name"
-                  name="username"
-                  onChange={onHandleChange}
-                />
-              </div>
-              <div className="input">
-                <input
-                  type="email"
-                  placeholder="Email Id"
-                  name="email"
-                  onChange={onHandleChange}
-                  required
-                />
-              </div>
-              <div className="input">
-                <input
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  onChange={onHandleChange}
-                  required
-                />
-              </div>
-              <div className="type">
-                <p>
-                  Owner
-                  <input
-                    type="radio"
-                    name="type"
-                    value="Owner"
-                    onChange={onHandleChange}
-                  />
-                </p>
-                <p>
-                  Adopter
-                  <input
-                    type="radio"
-                    name="type"
-                    value="Adopter"
-                    onChange={onHandleChange}
-                  />
-                </p>
-              </div>
+
+            <div className="input">
+              <input
+                type="email"
+                placeholder="Email Id"
+                name="email"
+                onChange={onHandleChange}
+                required
+              />
             </div>
-            <div className="Forgot-password">
+
+            <div className="input">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={onHandleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="register-user-type">
+            <div>
+              <p>
+                Owner
+                <input
+                  type="radio"
+                  name="type"
+                  value="Owner"
+                  onChange={onHandleChange}
+                />
+              </p>
+            </div>
+            <div>
+              <p>
+                Adopter
+                <input
+                  type="radio"
+                  name="type"
+                  value="Adopter"
+                  onChange={onHandleChange}
+                />
+              </p>
+            </div>
+          </div>
+          <div className="Forgot-password">
+            <h3>
               Forget password?<span>Click Here!</span>
+            </h3>
+          </div>
+          <div className="register-buttons">
+            <div>
+              <Link>
+                <button type="submit" onClick={onHandleSignup}>
+                  Sign Up
+                </button>
+              </Link>
             </div>
-            <div className="submit-container">
-              <button type="submit" onClick={onHandleSignup}>
-                Sign Up
-              </button>
+            <div>
               <Link to="/login">
                 <button type="submit">Login</button>
               </Link>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </>
   );
 }
