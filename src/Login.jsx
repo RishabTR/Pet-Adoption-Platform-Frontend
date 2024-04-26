@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { login } from "./Services/Postrequest";
+import { fetch_post_data } from "./Services/Getrequests";
 
 function Login() {
+  console.log("In login page");
   const navigate = useNavigate();
 
   const [loginCredentials, setLoginCredentials] = useState({
@@ -13,7 +15,8 @@ function Login() {
     const { name, value } = e.target;
     setLoginCredentials({ ...loginCredentials, [name]: value });
   };
-  const onHandleLogin = () => {
+  const onHandleLogin = (e) => {
+    e.preventDefault();
     console.log(loginCredentials);
     login(loginCredentials)
       .then((res) => {
@@ -21,52 +24,57 @@ function Login() {
           alert("Invalid username or password");
         } else if (res.status == 200) {
           alert("Login Successful");
-          navigate("/user");
+          const arr = fetch_post_data();
+          arr.then((r) => {
+            navigate("/user", { state: r.data });
+          });
         }
       })
       .catch((error) => console.log(error));
   };
   const { username, password } = loginCredentials;
   return (
-    <>
-      <div className="login">
-        <h2>Login</h2>
-        <div className="container">
-          <div className="header ">
-            <div className="text"></div>
-            <div className="underline"></div>
-          </div>
-          <div className="inputs">
-            <div className="input">
-              <input
-                type="text"
-                placeholder="Name"
-                onChange={onHandleChange}
-                name="username"
-              />
-            </div>
+    <div className="log">
+      <form>
+        <div className="ring">
+          <i style={{ "--clr": "#00ff0a" }}></i>
+          <i style={{ "--clr": "#ff0057" }}></i>
+          <i style={{ "--clr": "#fffd44" }}></i>
+          <div>
+            <div className="login-container">
+              <div className="login">
+                <h2>Login</h2>
+                <div className="inputBx">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    onChange={onHandleChange}
+                    name="username"
+                  />
+                </div>
 
-            <div className="input">
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                onChange={onHandleChange}
-              />
+                <div className="inputBx">
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    onChange={onHandleChange}
+                  />
+                </div>
+
+                <div>
+                  <button onClick={onHandleLogin}>Login</button>
+                </div>
+                <div className="links">
+                  <a href="#">Forget Password</a>
+                  <a href="/register">Signup</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="Forgot-password">
-            Forget password?<span>Click Here!</span>
-          </div>
-          <div className="submit-container">
-            <Link to="/register">
-              <button>Sign Up</button>
-            </Link>
-            <button onClick={onHandleLogin}>Login</button>
           </div>
         </div>
-      </div>
-    </>
+      </form>
+    </div>
   );
 }
 

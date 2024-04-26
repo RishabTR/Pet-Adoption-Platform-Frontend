@@ -13,3 +13,7 @@ export const login = async(data)=>{
 export const mailreq = async(data)=>{
     return await axios.post('http://localhost:5000/contact',data)
 }
+
+export const post = async(data)=>{
+    return await axios.post('http://localhost:5000/post',data)
+}

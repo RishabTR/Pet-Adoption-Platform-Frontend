@@ -8,13 +8,15 @@ import {
 import { Link } from "react-router-dom";
 
 function User(props) {
+  console.log("In User")
+  console.log(props);
   return (
     <>
       <div className="products">
         <div className="productList">
-          <div key={props.id} className="productCard">
+          <div className="productCard">
             <img
-              src={props.image}
+              src={props.petimage}
               alt="product-img"
               className="productImage"
             ></img>
@@ -24,16 +26,16 @@ function User(props) {
             <FaFireAlt className={"productCard__fastSelling"} />
 
             <div className="productCard__content">
-              <h3 className="productName">{props.name}</h3>
+              <h3 className="productName">{props.petname}</h3>
               <div className="displayStack__2">
                 <div className="productRating">
-                  {[...Array(props.rating)].map((index) => (
+                  {[...Array(props.petrating)].map((index) => (
                     <FaStar id={index + 1} key={index} />
                   ))}
                 </div>
               </div>
-              {console.log(props.email)}
-              <Link to="/contact" state={{ email: props.email, test: 123 }}>
+              {console.log(props.owneremail)}
+              <Link to="/contact" state={{ email: props.owneremail, test: 123 }}>
                 <button>Contact</button>
               </Link>
             </div>
